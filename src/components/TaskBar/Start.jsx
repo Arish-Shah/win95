@@ -35,7 +35,18 @@ const Vertical = styled.div`
   
   span {
     display: inline-block;
+    transform-origin: 0 0;
     transform: rotate(270deg) !important;
+    color: rgb(220, 220, 220);
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: -25px;
+  }
+  
+  span strong {
+    font-size: 25px;
+    font-family: Arial Black;
   }
 `;
 
@@ -90,7 +101,7 @@ function Start() {
     <StyledStart>
       <StyledContainer>
 
-        <Vertical><span style={{ fontWeight: 'bold' }}>Windows</span>95</Vertical>
+        <Vertical><span><strong>Windows</strong>95</span></Vertical>
 
         <AllPrograms>
           {allPrograms.map(({ text, img, showArrow }, index) =>

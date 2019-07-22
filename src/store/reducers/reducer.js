@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  showStart: true
+  showStart: false
 }
 
 const reducer = (state = initialState, action) => {
