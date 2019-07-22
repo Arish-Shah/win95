@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('../assets/fonts/MSSansSerif.woff2') format('woff2');
+  font-weight: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('../assets/fonts/MSSansSerifBold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: fallback;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 12px;
+  outline: none;
+  font-family: 'MS Sans Serif';
+  cursor: url('../assets/cursors/cursor-default.svg'), auto;
+}
+
+html, 
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #008080;
+}
