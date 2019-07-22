@@ -2,36 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import Button from '../Button';
 import Clock from './Clock';
 import Start from './Start';
-import { startButtonClicked } from '../../store/actions/actions';
-import start from '../../assets/start.png';
+import TaskBarGroup from './TaskBarGroup';
 
 const StyledTaskBar = styled.div`
   background-color: ${props => props.theme.main};
   position: absolute;
   width: 100vw;
   bottom: 0;
-  padding: 2px 2px 2px 2px;
-  height:  29px;
+  padding: 3px;
+  height:  30px;
   box-shadow: 0 0 0 2px rgba(255, 255, 255);
 `;
 
-const startButtonStyle = {
-  fontWeight: 'bold',
-  paddingTop: '2px'
-}
-
-function TaskBar({ showStart, onStartClick }) {
+function TaskBar({ showStart }) {
   return (
     <StyledTaskBar>
-      <Button padding="0 0" clicked={() => onStartClick()} pressed={showStart}>
-        <img src={start} alt="start" />&nbsp;
-        <span style={startButtonStyle}>Start</span>
-      </Button>
+      <TaskBarGroup />
       {showStart ? <Start /> : null}
       <Clock />
+
     </StyledTaskBar>
   );
 }
@@ -42,10 +33,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onStartClick: () => dispatch(startButtonClicked())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskBar);
+export default connect(mapStateToProps)(TaskBar);

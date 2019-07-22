@@ -10,15 +10,14 @@ import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
 
 const StyledStart = styled.div`
-  left: 0;
+  left: 2px;
   bottom: 28px;
   height: auto;
   position: absolute;
   background-color: ${props => props.theme.main};
   border-top: 2px solid rgba(255, 255, 255, 1);
   border-left: 2px solid rgba(255, 255, 255, 1);
-  border-right: 2px solid rgba(0, 0, 0, 1);
-  border-bottom: 2px solid rgba(0, 0, 0, 1);
+  box-shadow: rgba(0, 0, 0, 0.7) -2px -2px 1px inset;
 `;
 
 const StyledContainer = styled.div`
@@ -97,6 +96,12 @@ function Start() {
     { text: 'Shut Down...', img: ShutDown, showArrow: false },
   ];
 
+  function handleClick(text) {
+    if (text === 'Shut Down...') {
+      console.log('Shutting Down...');
+    }
+  }
+
   return (
     <StyledStart>
       <StyledContainer>
@@ -105,7 +110,7 @@ function Start() {
 
         <AllPrograms>
           {allPrograms.map(({ text, img, showArrow }, index) =>
-            <ProgramGroup key={index}>
+            <ProgramGroup key={index} onClick={() => handleClick(text)}>
               <img src={img} alt={text} />
               {text}
               {showArrow ? <span>▶</span> : null}

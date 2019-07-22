@@ -3,8 +3,22 @@ import styled from 'styled-components';
 
 const StyledButtonInside = styled.div`
   border: 1px dotted transparent;
-  padding: ${props => props.padding ? props.padding : '0 15px'};
+  padding: 0 ${props => props.pad + 'px'};
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  div {
+    display: flex;
+    
+    span, b {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 3px;
+    }
+  }
 `;
 
 const StyledButton = styled.button`
@@ -13,9 +27,14 @@ const StyledButton = styled.button`
   border: none;
   padding: 3px;
   background: ${props => props.theme.main};
+  margin-right: 4px;
+  height: 100%;
   
   ${props => props.pressed && `
     box-shadow: rgb(255, 255, 255) 1px 1px 0 1px, rgb(0, 0, 0) 1px 1px 0px 1px inset !important;
+    font-weight: bold;
+    background-color: #e6e6e6 !important;
+    padding: 4px 2px 2px 4px;
   `};
   
   &:focus {
@@ -24,7 +43,8 @@ const StyledButton = styled.button`
   }
   
   &:active {
-    box-shadow: rgb(255, 255, 255) 1px 1px 0 1px, rgb(0, 0, 0) 1px 1px 0px 1px inset;
+    box-shadow: rgb(255, 255, 255) 1px 1px 0 1px, rgb(0, 0, 0) 1px 1px 0px 1px inset !important;
+    padding: 4px 2px 2px 4px;
   }
   
   &:focus ${StyledButtonInside} {
@@ -32,12 +52,16 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button({ children, clicked, padding, pressed }) {
+function Button({ children, pressed, clicked, pad }) {
   return (
     <StyledButton onClick={clicked} pressed={pressed}>
-      <StyledButtonInside padding={padding}>{children}</StyledButtonInside>
+      <StyledButtonInside pad={pad}>{children}</StyledButtonInside>
     </StyledButton>
   );
+}
+
+Button.defaultProps = {
+  pad: '10'
 }
 
 export default Button;

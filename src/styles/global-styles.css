@@ -17,7 +17,7 @@
   font-size: 12px;
   outline: none;
   font-family: 'MS Sans Serif';
-  cursor: url('../assets/cursors/cursor-default.svg'), auto;
+  cursor: url('../assets/cursors/cursor-default.png'), auto;
   -moz-user-select: none; 
   -webkit-user-select: none; 
   -ms-user-select:none; 
