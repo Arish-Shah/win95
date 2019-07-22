@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import TaskBar from './components/TaskBar/TaskBar';
@@ -9,6 +9,13 @@ const theme = {
 }
 
 function App() {
+  useEffect(() => {
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    return () => {
+      document.removeEventListener('contextmenu');
+    }
+  });
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
