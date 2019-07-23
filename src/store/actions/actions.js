@@ -12,6 +12,7 @@ export function startMenuBlur() {
   }
 }
 
+//Opening Actions
 export function openNotepad() {
   return {
     type: actionTypes.OPEN_NOTEPAD
@@ -27,5 +28,44 @@ export function openAbout() {
 export function openModal() {
   return {
     type: actionTypes.OPEN_MODAL
+  }
+}
+
+//Focus Actions
+export function focusNotepad() {
+  return {
+    type: actionTypes.FOCUS_NOTEPAD
+  }
+}
+
+export function focusAbout() {
+  return {
+    type: actionTypes.FOCUS_ABOUT
+  }
+}
+
+//Blurring Actions
+export function blurNotepad() {
+  return {
+    type: actionTypes.BLUR_NOTEPAD
+  }
+}
+
+export function blurAbout() {
+  return {
+    type: actionTypes.BLUR_ABOUT
+  }
+}
+
+//Minimize Actions
+export function minimizeNotepad() {
+  return {
+    type: actionTypes.MINIMIZE_NOTEPAD
+  }
+}
+
+export function minimizeAbout() {
+  return {
+    type: actionTypes.MINIMIZE_ABOUT
   }
 }

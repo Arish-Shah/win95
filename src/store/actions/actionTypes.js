@@ -1,5 +1,15 @@
 export const START_BUTTON_CLICKED = 'START_BUTTON_CLICKED';
 export const START_MENU_BLUR = 'START_MENU_BLUR';
+
 export const OPEN_NOTEPAD = 'OPEN_NOTEPAD';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const OPEN_ABOUT = 'OPEN_ABOUT';
+
+export const FOCUS_NOTEPAD = 'FOCUS_NOTEPAD';
+export const FOCUS_ABOUT = 'FOCUS_ABOUT';
+
+export const BLUR_NOTEPAD = 'BLUR_NOTEPAD';
+export const BLUR_ABOUT = 'BLUR_ABOUT';
+
+export const MINIMIZE_NOTEPAD = 'MINIMIZE_NOTEPAD';
+export const MINIMIZE_ABOUT = 'MINIMIZE_ABOUT';

@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-function About({ about }) {
+import WindowFrame from './WindowFrame/WindowFrame';
+import { focusAbout, blurAbout, minimizeAbout } from '../../store/actions/actions';
+import aboutImage from '../../assets/taskbar-icons/about.png';
+
+function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize }) {
+  useEffect(() => {
+    window.addEventListener('click', aboutBlur);
+    return () => window.removeEventListener('click', aboutBlur);
+  });
+
+  function aboutBlur(event) {
+    if (!document.querySelector('#About').contains(event.target)) {
+      onAboutBlur();
+    } else { onAboutFocus(); }
+  }
+
   const displayContent =
     about.show && !about.minimized ?
-      "This is about" : null;
+      <WindowFrame
+        id="About"
+        x="100"
+        y="50"
+        img={aboutImage}
+        title="About this Project"
+        blurred={about.blurred}
+        showMenu={false}
+      /> : null;
 
   return displayContent;
 }
@@ -15,4 +38,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(About);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAboutBlur: () => dispatch(blurAbout()),
+    onAboutMinimize: () => dispatch(minimizeAbout()),
+    onAboutFocus: () => dispatch(focusAbout())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(About);

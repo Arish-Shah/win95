@@ -1,22 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const StyledFrame = styled.div`
-  background-color: rgb(195, 199, 203);
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  left: 100px;
-  top: 100px;
-`;
+import { StyledFrame, TitleBar, ButtonGroup, StyledMenu } from './FrameStyled';
+import minimize from '../../../assets/titlebar-icons/minimize.png';
+import maximizeDisabled from '../../../assets/titlebar-icons/maximize-disabled.png';
+import close from '../../../assets/titlebar-icons/close.png';
 
+function Frame({ id, x, y, img, title, blurred, showMenu }) {
+  const menu = showMenu ?
+    <StyledMenu>
 
+    </StyledMenu> : null;
 
-function Frame() {
   return (
-    <StyledFrame>
+    <StyledFrame x={x} y={y} id={id} blurred={blurred}>
+      <TitleBar blurred={blurred}>
+        <img src={img} alt="Window" />
 
-    </StyledFrame>
+        <span>{title}</span>
+
+        <ButtonGroup>
+          <button className="clickable">
+            <img src={minimize} draggable="false" alt="Minimize" />
+          </button>
+
+          <button>
+            <img src={maximizeDisabled} draggable="false" alt="Maximize" />
+          </button>
+
+          <button className="clickable">
+            <img src={close} draggable="false" alt="Close" />
+          </button>
+        </ButtonGroup>
+
+      </TitleBar>
+
+      {menu}
+
+    </StyledFrame >
   );
 }
 

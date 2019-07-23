@@ -4,7 +4,7 @@ const initialState = {
   showStart: false,
   showModal: false,
   about: {
-    show: false,
+    show: true,
     blurred: false,
     minimized: false
   },
@@ -81,6 +81,55 @@ const reducer = (state = initialState, action) => {
         notepad: {
           ...state.notepad,
           blurred: true
+        }
+      }
+
+    case actionTypes.FOCUS_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad,
+          blurred: false
+        }
+      }
+
+    case actionTypes.FOCUS_ABOUT: {
+      return {
+        ...state,
+        about: {
+          ...state.about,
+          blurred: false
+        },
+        notepad: {
+          ...state.notepad
+        }
+      }
+    }
+
+    case actionTypes.BLUR_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad,
+          blurred: true,
+        }
+      }
+
+    case actionTypes.BLUR_ABOUT:
+      return {
+        ...state,
+        about: {
+          ...state.about,
+          blurred: true
+        },
+        notepad: {
+          ...state.notepad
         }
       }
 

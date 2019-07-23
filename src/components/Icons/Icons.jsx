@@ -64,7 +64,10 @@ function Icons({ onOpenAbout, onOpenNotepad }) {
       onOpenAbout();
     } else if (label === 'Notepad') {
       onOpenNotepad();
-    } else {
+    } else if (label === 'GitHub Repo') {
+      window.open('https://github.com/Arish-Shah/win95');
+    }
+    else {
       openModal();
     }
   }
