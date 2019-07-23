@@ -7,7 +7,7 @@ import Start from './Start';
 import TaskBarGroup from './TaskBarGroup';
 
 const StyledTaskBar = styled.div`
-  background-color: ${props => props.theme.main};
+  background-color: rgb(195, 199, 203);
   position: fixed;
   width: 100vw;
   bottom: 0;

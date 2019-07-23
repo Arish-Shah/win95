@@ -26,7 +26,7 @@ const StyledButton = styled.button`
     rgb(134, 138, 142) 0px 0px 0px 1px inset, rgb(0, 0, 0) 1px 1px 0px 0px;
   border: none;
   padding: 3px;
-  background: ${props => props.theme.main};
+  background: rgb(195, 199, 203);
   margin-right: 4px;
   height: 100%;
   

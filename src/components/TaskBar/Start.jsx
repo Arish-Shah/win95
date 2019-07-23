@@ -17,7 +17,7 @@ const StyledStart = styled.div`
   bottom: 28px;
   height: auto;
   position: absolute;
-  background-color: ${props => props.theme.main};
+  background-color: rgb(195, 199, 203);
   border-top: 2px solid rgba(255, 255, 255, 1);
   border-left: 2px solid rgba(255, 255, 255, 1);
   box-shadow: rgba(0, 0, 0, 0.7) -2px -2px 1px inset;
@@ -70,7 +70,7 @@ const ProgramGroup = styled.div`
   }
 
   &:hover {
-    background: ${props => props.theme.blue};
+    background: rgb(0, 0, 127);
     color: rgba(255, 255, 255);
   }
 

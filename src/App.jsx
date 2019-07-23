@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Icons from './components/Icons/Icons';
 import TaskBar from './components/TaskBar/TaskBar';
+//import Modal from './components/Modal';
 
 const theme = {
   main: 'rgb(195, 199, 203)',
