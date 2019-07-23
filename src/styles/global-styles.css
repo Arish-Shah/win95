@@ -28,8 +28,13 @@
 html, 
 body, .App {
   margin: 0;
+  overflow: hidden;
+}
+
+.App {
   height: 100vh;
   width: 100vw;
-  background-color: #008080;
+  position: fixed;
   overflow: hidden;
+  background-color: #008080;
 }
