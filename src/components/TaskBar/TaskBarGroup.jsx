@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Button from '../Button';
-import start from '../../assets/start.png';
+import start from '../../assets/taskbar-icons/start.png';
+import notepad from '../../assets/taskbar-icons/notepad.png';
+import about from '../../assets/taskbar-icons/about.png';
 import { startButtonClicked } from '../../store/actions/actions';
 
 const StyledTaskBarGroup = styled.div`
@@ -20,11 +22,6 @@ function TaskBarGroup({ showStart, onStartClick }) {
   return (
     <StyledTaskBarGroup>
       <StyledGroup>
-        {/* 
-      <Button padding="0 0" clicked={() => onStartClick()} pressed={showStart}>
-        <img src={start} alt="start" />&nbsp;
-        <span style={startButtonStyle}>Start</span>
-      </Button> */}
 
         <Button clicked={() => onStartClick()} pressed={showStart} pad="0">
           <div>
@@ -35,14 +32,14 @@ function TaskBarGroup({ showStart, onStartClick }) {
 
         <Button>
           <div>
-            <img src={start} alt="start" />
+            <img src={notepad} alt="start" />
             <span>Untitled - Notepad</span>
           </div>
         </Button>
 
         <Button>
           <div>
-            <img src={start} alt="start" />
+            <img src={about} alt="start" />
             <span>About this Project</span>
           </div>
         </Button>

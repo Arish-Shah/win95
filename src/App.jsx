@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import Icons from './components/Icons/Icons';
 import TaskBar from './components/TaskBar/TaskBar';
 
 const theme = {
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <Icons />
       <ThemeProvider theme={theme}>
         <TaskBar />
       </ThemeProvider>

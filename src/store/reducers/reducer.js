@@ -1,7 +1,18 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  showStart: false
+  showStart: false,
+  showModal: false,
+  about: {
+    show: false,
+    blurred: false,
+    minimized: false
+  },
+  notepad: {
+    show: false,
+    blurred: false,
+    minimized: false
+  }
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,14 +20,14 @@ const reducer = (state = initialState, action) => {
     case actionTypes.START_BUTTON_CLICKED:
       return {
         ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad
+        },
         showStart: !state.showStart
       }
-    case 'DOC_CLICKED':
-      return {
-        ...state,
-        showStart: false
-      }
-
     default: return state;
   }
 }

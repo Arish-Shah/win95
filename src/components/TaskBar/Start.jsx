@@ -10,6 +10,7 @@ import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
 
 const StyledStart = styled.div`
+  z-index: 100;
   left: 2px;
   bottom: 28px;
   height: auto;
