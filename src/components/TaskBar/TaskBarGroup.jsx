@@ -23,7 +23,7 @@ function TaskBarGroup({ showStart, onStartClick }) {
     <StyledTaskBarGroup>
       <StyledGroup>
 
-        <Button clicked={() => onStartClick()} pressed={showStart} pad="0">
+        <Button id="StartButton" clicked={() => onStartClick()} pressed={showStart} pad="0">
           <div>
             <img src={start} alt="start" />
             <b>Start</b>

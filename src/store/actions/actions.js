@@ -6,8 +6,8 @@ export function startButtonClicked() {
   }
 }
 
-export function startBlur() {
+export function startMenuBlur() {
   return {
-    type: actionTypes.START_BLUR
+    type: actionTypes.START_MENU_BLUR
   }
 }

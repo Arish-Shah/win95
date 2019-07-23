@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
         showStart: !state.showStart
       }
 
-    case actionTypes.START_BLUR:
+    case actionTypes.START_MENU_BLUR:
       return {
         ...state,
         about: {

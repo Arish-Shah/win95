@@ -52,9 +52,9 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button({ children, pressed, clicked, pad }) {
+function Button({ id, children, pressed, clicked, pad }) {
   return (
-    <StyledButton onMouseDown={clicked} pressed={pressed}>
+    <StyledButton onMouseDown={clicked} pressed={pressed} id={id}>
       <StyledButtonInside pad={pad}>{children}</StyledButtonInside>
     </StyledButton>
   );

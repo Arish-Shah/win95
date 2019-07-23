@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 
 import Icon from './Icon';
 import MyComputer from '../../assets/desktop-icons/MyComputer.png';
@@ -9,7 +8,6 @@ import Notepad from '../../assets/desktop-icons/Notepad.png';
 import InternetExplorer from '../../assets/desktop-icons/InternetExplorer.png';
 import GitHub from '../../assets/desktop-icons/GitHub.png';
 import About from '../../assets/desktop-icons/About.png';
-import { startBlur } from '../../store/actions/actions';
 
 const StyledIcons = styled.div`
   display: flex;
@@ -18,7 +16,7 @@ const StyledIcons = styled.div`
   padding: 8px;
 `;
 
-function Icons({ onStartBlur }) {
+function Icons() {
   const [icons, setIcons] = useState([
     { label: 'My Computer', img: MyComputer, clicked: false },
     { label: 'Recycle Bin', img: RecycleBin, clicked: false },
@@ -29,17 +27,15 @@ function Icons({ onStartBlur }) {
   ]);
 
   useEffect(() => {
-    window.addEventListener('click', event => {
-      if (!document.querySelector('#Icons').contains(event.target)) { resetIcons(); }
-    });
+    window.addEventListener('click', resetIcons);
 
     return () => {
-      window.removeEventListener('click');
+      window.removeEventListener('click', resetIcons);
     }
+    // eslint-disable-next-line
   }, []);
 
   function handleClick(label) {
-    onStartBlur();
     const index = icons.findIndex(icon => icon.label === label);
     const updatedIcons = [...icons];
 
@@ -48,10 +44,12 @@ function Icons({ onStartBlur }) {
     setIcons(updatedIcons);
   }
 
-  function resetIcons() {
-    const updatedIcons = [...icons];
-    updatedIcons.map(icon => icon.clicked = false);
-    setIcons(updatedIcons);
+  function resetIcons(event) {
+    if (!document.querySelector('#Icons').contains(event.target)) {
+      const updatedIcons = [...icons];
+      updatedIcons.map(icon => icon.clicked = false);
+      setIcons(updatedIcons);
+    }
   }
 
   return (
@@ -67,10 +65,4 @@ function Icons({ onStartBlur }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onStartBlur: () => dispatch(startBlur())
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Icons);
+export default Icons;

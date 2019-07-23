@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import Programs from '../../assets/start-icons/Programs.png';
 import Documents from '../../assets/start-icons/Documents.png';
@@ -8,6 +9,7 @@ import Find from '../../assets/start-icons/Find.png';
 import Help from '../../assets/start-icons/Help.png';
 import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
+import { startMenuBlur } from '../../store/actions/actions';
 
 const StyledStart = styled.div`
   z-index: 100;
@@ -86,7 +88,7 @@ const ProgramGroup = styled.div`
 `;
 
 
-function Start() {
+function Start({ onStartMenuBlur }) {
   const allPrograms = [
     { text: 'Programs', img: Programs, showArrow: true },
     { text: 'Documents', img: Documents, showArrow: true },
@@ -97,14 +99,31 @@ function Start() {
     { text: 'Shut Down...', img: ShutDown, showArrow: false },
   ];
 
+  useEffect(() => {
+    window.addEventListener('click', startEventHandler);
+
+    return () => {
+      window.removeEventListener('click', startEventHandler);
+    }
+
+    // eslint-disable-next-line
+  }, []);
+
+  function startEventHandler(event) {
+    if (!document.querySelector('#Start').contains(event.target)
+      && !document.querySelector('#StartButton').contains(event.target)) {
+      onStartMenuBlur();
+    }
+  }
+
   function handleClick(text) {
     if (text === 'Shut Down...') {
-      console.log('Shutting Down...');
+      onStartMenuBlur();
     }
   }
 
   return (
-    <StyledStart>
+    <StyledStart id="Start">
       <StyledContainer>
 
         <Vertical><span><strong>Windows</strong>95</span></Vertical>
@@ -124,4 +143,10 @@ function Start() {
   );
 }
 
-export default Start;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onStartMenuBlur: () => dispatch(startMenuBlur())
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Start);
