@@ -3,7 +3,8 @@ import { ThemeProvider } from 'styled-components';
 
 import Icons from './components/Icons/Icons';
 import TaskBar from './components/TaskBar/TaskBar';
-//import Modal from './components/Modal';
+import About from './components/Windows/About';
+import Notepad from './components/Windows/Notepad';
 
 const theme = {
   main: 'rgb(195, 199, 203)',
@@ -21,6 +22,8 @@ function App() {
   return (
     <div className="App">
       <Icons />
+      <About />
+      <Notepad />
       <ThemeProvider theme={theme}>
         <TaskBar />
       </ThemeProvider>

@@ -21,10 +21,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         about: {
-          ...state.about
+          ...state.about,
+          blurred: true
         },
         notepad: {
-          ...state.notepad
+          ...state.notepad,
+          blurred: true
         },
         showStart: !state.showStart
       }
@@ -39,6 +41,47 @@ const reducer = (state = initialState, action) => {
           ...state.notepad
         },
         showStart: false
+      }
+
+    case actionTypes.OPEN_MODAL:
+      return {
+        ...state,
+        about: {
+          ...state.about,
+          blurred: true
+        },
+        notepad: {
+          ...state.notepad
+        },
+        showModal: true
+      }
+
+    case actionTypes.OPEN_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about,
+          blurred: true
+        },
+        notepad: {
+          show: true,
+          blurred: false,
+          minimized: false
+        }
+      }
+
+    case actionTypes.OPEN_ABOUT:
+      return {
+        ...state,
+        about: {
+          show: true,
+          blurred: false,
+          minimized: false
+        },
+        notepad: {
+          ...state.notepad,
+          blurred: true
+        }
       }
 
     default: return state;

@@ -6,7 +6,6 @@ const ModalBackdrop = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: rgba(255, 255, 255, 0.6);
-  z-index: 200;
   display: flex;
   flex-direction: column;
   justify-content: center;

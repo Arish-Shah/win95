@@ -1,2 +1,5 @@
 export const START_BUTTON_CLICKED = 'START_BUTTON_CLICKED';
 export const START_MENU_BLUR = 'START_MENU_BLUR';
+export const OPEN_NOTEPAD = 'OPEN_NOTEPAD';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const OPEN_ABOUT = 'OPEN_ABOUT';

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
+import { openAbout, openNotepad, openModal } from '../../store/actions/actions';
 import Icon from './Icon';
 import MyComputer from '../../assets/desktop-icons/MyComputer.png';
 import RecycleBin from '../../assets/desktop-icons/RecycleBin.png';
@@ -16,7 +18,7 @@ const StyledIcons = styled.div`
   padding: 8px;
 `;
 
-function Icons() {
+function Icons({ onOpenAbout, onOpenNotepad }) {
   const [icons, setIcons] = useState([
     { label: 'My Computer', img: MyComputer, clicked: false },
     { label: 'Recycle Bin', img: RecycleBin, clicked: false },
@@ -46,9 +48,24 @@ function Icons() {
 
   function resetIcons(event) {
     if (!document.querySelector('#Icons').contains(event.target)) {
-      const updatedIcons = [...icons];
-      updatedIcons.map(icon => icon.clicked = false);
-      setIcons(updatedIcons);
+      reset();
+    }
+  }
+
+  function reset() {
+    const updatedIcons = [...icons];
+    updatedIcons.map(icon => icon.clicked = false);
+    setIcons(updatedIcons);
+  }
+
+  function doubleClicked(label) {
+    reset();
+    if (label === 'About') {
+      onOpenAbout();
+    } else if (label === 'Notepad') {
+      onOpenNotepad();
+    } else {
+      openModal();
     }
   }
 
@@ -59,10 +76,18 @@ function Icons() {
           label={label}
           img={img}
           clicked={clicked}
-          handleClick={handleClick} />
+          handleClick={handleClick}
+          doubleClicked={doubleClicked} />
       )}
     </StyledIcons>
   );
 }
 
-export default Icons;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onOpenAbout: () => dispatch(openAbout()),
+    onOpenNotepad: () => dispatch(openNotepad())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Icons);
