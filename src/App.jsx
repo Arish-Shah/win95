@@ -11,9 +11,9 @@ const theme = {
 
 function App() {
   useEffect(() => {
-    document.addEventListener('contextmenu', e => e.preventDefault());
+    window.addEventListener('contextmenu', event => event.preventDefault());
     return () => {
-      document.removeEventListener('contextmenu');
+      window.removeEventListener('contextmenu');
     }
   });
 

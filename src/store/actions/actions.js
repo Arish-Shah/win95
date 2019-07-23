@@ -5,3 +5,9 @@ export function startButtonClicked() {
     type: actionTypes.START_BUTTON_CLICKED
   }
 }
+
+export function startBlur() {
+  return {
+    type: actionTypes.START_BLUR
+  }
+}

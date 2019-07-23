@@ -28,6 +28,19 @@ const reducer = (state = initialState, action) => {
         },
         showStart: !state.showStart
       }
+
+    case actionTypes.START_BLUR:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad
+        },
+        showStart: false
+      }
+
     default: return state;
   }
 }
