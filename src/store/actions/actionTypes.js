@@ -13,3 +13,9 @@ export const BLUR_ABOUT = 'BLUR_ABOUT';
 
 export const MINIMIZE_NOTEPAD = 'MINIMIZE_NOTEPAD';
 export const MINIMIZE_ABOUT = 'MINIMIZE_ABOUT';
+
+export const MAXIMIZE_NOTEPAD = 'MAXIMIZE_NOTEPAD';
+export const MAXIMIZE_ABOUT = 'MAXIMIZE_ABOUT';
+
+export const EXIT_NOTEPAD = 'EXIT_NOTEPAD';
+export const EXIT_ABOUT = 'EXIT_ABOUT';

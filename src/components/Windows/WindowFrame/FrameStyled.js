@@ -10,6 +10,7 @@ export const StyledFrame = styled.div`
   top: ${props => props.y + 'px'};   
   z-index: ${props => props.blurred ? `4` : `7`};                                                     
   padding: 3px 5px 4px 4px;
+  display: ${props => props.isMinimized ? `none` : `initial`}
   
   div.Notepad {
     height: 250px;

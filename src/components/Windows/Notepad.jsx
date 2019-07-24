@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import WindowFrame from './WindowFrame/WindowFrame';
-import { focusNotepad, blurNotepad, minimizeNotepad } from '../../store/actions/actions';
+import { focusNotepad, blurNotepad, minimizeNotepad, exitNotepad } from '../../store/actions/actions';
 import notepadImage from '../../assets/taskbar-icons/notepad.png';
 
-function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize }) {
+function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, onNotepadExit }) {
   const [text, setText] = useState('');
   const inputRef = React.createRef();
 
@@ -18,13 +18,14 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize }) 
   }, []);
 
   function notepadBlur(event) {
-    if (!document.querySelector('#Notepad').contains(event.target)) {
+    if (!document.querySelector('#Notepad').contains(event.target) &&
+      !document.querySelector('#notepad-button').contains(event.target)) {
       onNotepadBlur();
     } else { onNotepadFocus(); }
   }
 
   const displayContent =
-    notepad.show && !notepad.minimized ?
+    notepad.show ?
       <WindowFrame
         id="Notepad"
         x="300"
@@ -33,7 +34,10 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize }) 
         img={notepadImage}
         title="Untitled - Notepad"
         blurred={notepad.blurred}
-        showMenu={true}>
+        showMenu={true}
+        onMinimize={onNotepadMinimize}
+        onExit={onNotepadExit}
+        isMinimized={notepad.minimized}>
         <div
           className="Notepad"
           contentEditable="true"
@@ -55,8 +59,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onNotepadBlur: () => dispatch(blurNotepad()),
+    onNotepadFocus: () => dispatch(focusNotepad()),
     onNotepadMinimize: () => dispatch(minimizeNotepad()),
-    onNotepadFocus: () => dispatch(focusNotepad())
+    onNotepadExit: () => dispatch(exitNotepad()),
   }
 }
 

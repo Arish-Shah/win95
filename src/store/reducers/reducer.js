@@ -9,7 +9,7 @@ const initialState = {
     minimized: false
   },
   notepad: {
-    show: true,
+    show: false,
     blurred: false,
     minimized: false
   }
@@ -130,6 +130,82 @@ const reducer = (state = initialState, action) => {
         },
         notepad: {
           ...state.notepad
+        }
+      }
+
+    case actionTypes.MINIMIZE_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad,
+          minimized: true
+        }
+      }
+
+    case actionTypes.MINIMIZE_ABOUT:
+      return {
+        ...state,
+        notepad: {
+          ...state.notepad
+        },
+        about: {
+          ...state.about,
+          minimized: true
+        }
+      }
+
+    case actionTypes.MAXIMIZE_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad,
+          blurred: false,
+          minimized: false
+        }
+      }
+
+    case actionTypes.MAXIMIZE_ABOUT:
+      return {
+        ...state,
+        notepad: {
+          ...state.notepad
+        },
+        about: {
+          ...state.about,
+          minimized: false,
+          blurred: false
+        }
+      }
+
+    case actionTypes.EXIT_NOTEPAD:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          show: false,
+          minimized: false,
+          blurred: false
+        }
+      }
+
+    case actionTypes.EXIT_ABOUT:
+      return {
+        ...state,
+        notepad: {
+          ...state.notepad
+        },
+        about: {
+          show: false,
+          blurred: false,
+          minimized: false
         }
       }
 

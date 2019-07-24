@@ -69,3 +69,29 @@ export function minimizeAbout() {
     type: actionTypes.MINIMIZE_ABOUT
   }
 }
+
+//Maximize Actions
+export function maximizeNotepad() {
+  return {
+    type: actionTypes.MAXIMIZE_NOTEPAD
+  }
+}
+
+export function maximizeAbout() {
+  return {
+    type: actionTypes.MAXIMIZE_ABOUT
+  }
+}
+
+//Exit Actions
+export function exitNotepad() {
+  return {
+    type: actionTypes.EXIT_NOTEPAD
+  }
+}
+
+export function exitAbout() {
+  return {
+    type: actionTypes.EXIT_ABOUT
+  }
+}

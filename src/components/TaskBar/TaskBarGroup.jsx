@@ -23,7 +23,8 @@ function TaskBarGroup({ showStart, about, notepad, showModal, onStartClick, onNo
   const notepadButton = notepad.show ?
     <Button
       pressed={!notepad.minimized && !notepad.blurred}
-      clicked={() => onNotepadClick()}>
+      clicked={() => onNotepadClick()}
+      id="notepad-button">
       <div>
         <img src={notepadImage} alt="notepad" />
         <span>Untitled - NotePad</span>
@@ -33,7 +34,8 @@ function TaskBarGroup({ showStart, about, notepad, showModal, onStartClick, onNo
   const aboutButton = about.show ?
     <Button
       pressed={!about.minimized && !about.blurred}
-      clicked={() => onAboutClick()}>
+      clicked={() => onAboutClick()}
+      id="about-button">
       <div>
         <img src={aboutImage} alt="about" />
         <span>About this Project</span>

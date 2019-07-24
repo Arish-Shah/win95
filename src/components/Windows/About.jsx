@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import WindowFrame from './WindowFrame/WindowFrame';
-import { focusAbout, blurAbout, minimizeAbout } from '../../store/actions/actions';
+import { focusAbout, blurAbout, minimizeAbout, exitAbout } from '../../store/actions/actions';
 import aboutImage from '../../assets/taskbar-icons/about.png';
 
-function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize }) {
+function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize, onAboutExit }) {
   useEffect(() => {
     window.addEventListener('click', aboutBlur);
     return () => window.removeEventListener('click', aboutBlur);
@@ -13,13 +13,14 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize }) {
   }, []);
 
   function aboutBlur(event) {
-    if (!document.querySelector('#About').contains(event.target)) {
+    if (!document.querySelector('#About').contains(event.target) &&
+      !document.querySelector('#about-button').contains(event.target)) {
       onAboutBlur();
     } else { onAboutFocus(); }
   }
 
   const displayContent =
-    about.show && !about.minimized ?
+    about.show ?
       <WindowFrame
         id="About"
         x="100"
@@ -28,7 +29,10 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize }) {
         img={aboutImage}
         title="About this Project"
         blurred={about.blurred}
-        showMenu={false}>
+        showMenu={false}
+        onMinimize={onAboutMinimize}
+        onExit={onAboutExit}
+        isMinimized={about.minimized}>
       </WindowFrame> : null;
 
   return displayContent;
@@ -43,8 +47,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAboutBlur: () => dispatch(blurAbout()),
+    onAboutFocus: () => dispatch(focusAbout()),
     onAboutMinimize: () => dispatch(minimizeAbout()),
-    onAboutFocus: () => dispatch(focusAbout())
+    onAboutExit: () => dispatch(exitAbout()),
   }
 }
 

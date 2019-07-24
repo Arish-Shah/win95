@@ -60,6 +60,10 @@ function Icons({ onOpenAbout, onOpenNotepad }) {
 
   function doubleClicked(label) {
     reset();
+    document.querySelector('html').classList.add('loading');
+    setTimeout(() => {
+      document.querySelector('html').classList.remove('loading');
+    }, 1000);
     if (label === 'About') {
       onOpenAbout();
     } else if (label === 'Notepad') {
