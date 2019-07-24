@@ -9,9 +9,9 @@ import Find from '../../assets/start-icons/Find.png';
 import Help from '../../assets/start-icons/Help.png';
 import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
-import { startMenuBlur, shutDown } from '../../store/actions/actions';
+import { startMenuBlur, shutDown, openModal } from '../../store/actions/actions';
 
-function Start({ onStartMenuBlur, onShutDown }) {
+function Start({ onStartMenuBlur, onShutDown, onOpenModal }) {
   const allPrograms = [
     { text: 'Programs', img: Programs, showArrow: true },
     { text: 'Documents', img: Documents, showArrow: true },
@@ -47,6 +47,9 @@ function Start({ onStartMenuBlur, onShutDown }) {
         onShutDown();
         html.classList.remove('loading');
       }, 3000);
+    } else {
+      onStartMenuBlur();
+      onOpenModal();
     }
   }
 
@@ -74,7 +77,8 @@ function Start({ onStartMenuBlur, onShutDown }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     onStartMenuBlur: () => dispatch(startMenuBlur()),
-    onShutDown: () => dispatch(shutDown())
+    onShutDown: () => dispatch(shutDown()),
+    onOpenModal: () => dispatch(openModal())
   };
 }
 

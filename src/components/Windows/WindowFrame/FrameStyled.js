@@ -6,11 +6,11 @@ export const StyledFrame = styled.div`
   position: absolute;
   box-shadow: rgb(0, 0, 0) -1.5px -1.5px 0.5px inset, 
     rgba(255, 255, 255, 0.8) 2px 2px 1px inset;
-  left: ${props => props.x + 'px'};
-  top: ${props => props.y + 'px'};   
+  left: ${props => props.x ? props.x + 'px' : 'auto'};
+  top: ${props => props.y ? props.y + 'px' : 'auto'};   
   z-index: ${props => props.blurred ? `4` : `7`};                                                     
-  padding: 3px 5px 4px 4px;
-  display: ${props => props.isMinimized ? `none` : `initial`}
+  padding: 3px 4px 4px 4px;
+  display: ${props => props.isMinimized ? `none` : `initial`};
   
   div.Notepad {
     height: 250px;

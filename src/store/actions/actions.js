@@ -101,3 +101,9 @@ export function exitAbout() {
     type: actionTypes.EXIT_ABOUT
   }
 }
+
+export function exitModal() {
+  return {
+    type: actionTypes.EXIT_MODAL
+  }
+}

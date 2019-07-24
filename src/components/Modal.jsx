@@ -1,31 +1,77 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import { exitModal } from '../store/actions/actions';
+import { StyledFrame, TitleBar, ButtonGroup } from './Windows/WindowFrame/FrameStyled';
+import Button from './Button';
+import warningIcon from '../assets/icons/warning.png';
+import close from '../assets/titlebar-icons/close-disabled.png';
 
 const ModalBackdrop = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 `;
 
-const StyledDiv = styled.div`
-  margin-top: -30vh;
-  width: 300px;
-  background-color: rgb(195, 199, 203);
+const Frame = styled(StyledFrame)`
+  margin-top: -10vh;
+  padding-bottom: 15px;
 `;
 
-function Modal() {
+const StyledContainer = styled.div`
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    padding-left: 15px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  text-align: center;
+`;
+
+function Modal({ onModalExit }) {
   return (
     <ModalBackdrop>
-      <StyledDiv>
-        This is the modal;
-      </StyledDiv>
+      <Frame width="400">
+        <TitleBar blurred={false} className="title">
+          <span>Warning</span>
+          <ButtonGroup>
+            <button>
+              <img src={close} draggable="false" alt="Close" />
+            </button>
+          </ButtonGroup>
+        </TitleBar>
+
+        <StyledContainer>
+          <img src={warningIcon} alt="Warning" />
+          <span>
+            Well that feature is not ready yet.
+            You might wanna check out other things like Notepad or Shutting your computer down.
+          </span>
+        </StyledContainer>
+
+        <ButtonContainer>
+          <Button clicked={onModalExit} pad="30">OK</Button>
+        </ButtonContainer>
+
+      </Frame>
     </ModalBackdrop>
   );
 }
 
-export default Modal;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onModalExit: () => dispatch(exitModal())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Modal);

@@ -18,7 +18,7 @@ const StyledIcons = styled.div`
   padding: 8px;
 `;
 
-function Icons({ onOpenAbout, onOpenNotepad }) {
+function Icons({ onOpenAbout, onOpenNotepad, onOpenModal }) {
   const [icons, setIcons] = useState([
     { label: 'My Computer', img: MyComputer, clicked: false },
     { label: 'Recycle Bin', img: RecycleBin, clicked: false },
@@ -63,7 +63,7 @@ function Icons({ onOpenAbout, onOpenNotepad }) {
     document.querySelector('html').classList.add('loading');
     setTimeout(() => {
       document.querySelector('html').classList.remove('loading');
-    }, 1000);
+    }, 800);
     if (label === 'About') {
       onOpenAbout();
     } else if (label === 'Notepad') {
@@ -72,7 +72,7 @@ function Icons({ onOpenAbout, onOpenNotepad }) {
       window.open('https://github.com/Arish-Shah/win95');
     }
     else {
-      openModal();
+      onOpenModal();
     }
   }
 
@@ -93,7 +93,8 @@ function Icons({ onOpenAbout, onOpenNotepad }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     onOpenAbout: () => dispatch(openAbout()),
-    onOpenNotepad: () => dispatch(openNotepad())
+    onOpenNotepad: () => dispatch(openNotepad()),
+    onOpenModal: () => dispatch(openModal())
   }
 }
 

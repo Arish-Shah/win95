@@ -6,7 +6,7 @@ import Button from '../Button';
 import start from '../../assets/taskbar-icons/start.png';
 import notepadImage from '../../assets/taskbar-icons/notepad.png';
 import aboutImage from '../../assets/taskbar-icons/about.png';
-import errorImage from '../../assets/taskbar-icons/error.png';
+import errorImage from '../../assets/taskbar-icons/warning.png';
 import { startButtonClicked, openAbout, openNotepad } from '../../store/actions/actions';
 
 const StyledTaskBarGroup = styled.div`

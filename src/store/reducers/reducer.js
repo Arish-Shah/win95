@@ -222,6 +222,18 @@ const reducer = (state = initialState, action) => {
         }
       }
 
+    case actionTypes.EXIT_MODAL:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad
+        },
+        showModal: false
+      }
+
     default: return state;
   }
 }
