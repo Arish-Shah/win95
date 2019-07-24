@@ -33,6 +33,9 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize, onAboutExit 
         onMinimize={onAboutMinimize}
         onExit={onAboutExit}
         isMinimized={about.minimized}>
+
+
+
       </WindowFrame> : null;
 
   return displayContent;

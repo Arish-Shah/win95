@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import WindowFrame from './WindowFrame/WindowFrame';
@@ -6,7 +6,6 @@ import { focusNotepad, blurNotepad, minimizeNotepad, exitNotepad } from '../../s
 import notepadImage from '../../assets/taskbar-icons/notepad.png';
 
 function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, onNotepadExit }) {
-  const [text, setText] = useState('');
   const inputRef = React.createRef();
 
   useEffect(() => {
@@ -41,8 +40,6 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, on
         <div
           className="Notepad"
           contentEditable="true"
-          value={text}
-          onChange={e => setText(e.target.value)}
           ref={inputRef}
         />
       </WindowFrame> : null;

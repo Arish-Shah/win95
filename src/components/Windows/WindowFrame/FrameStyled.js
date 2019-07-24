@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-export const StyledFrame = styled.div`
+export const StyledFrame = styled.div.attrs(({ top, left }) => ({
+  style: {
+    top, left
+  }
+}))`
   background-color: rgb(195, 199, 203);
   width: ${props => props.width + 'px'};
   position: absolute;
   box-shadow: rgb(0, 0, 0) -1.5px -1.5px 0.5px inset, 
     rgba(255, 255, 255, 0.8) 2px 2px 1px inset;
-  left: ${props => props.x ? props.x + 'px' : 'auto'};
-  top: ${props => props.y ? props.y + 'px' : 'auto'};   
   z-index: ${props => props.blurred ? `4` : `7`};                                                     
   padding: 3px 4px 4px 4px;
   display: ${props => props.isMinimized ? `none` : `initial`};
@@ -23,6 +25,10 @@ export const StyledFrame = styled.div`
     padding: 3px;
     font-size: 13px;
   }
+`;
+
+export const StyledBorder = styled.div`
+  
 `;
 
 export const TitleBar = styled.div`

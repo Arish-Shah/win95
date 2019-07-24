@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import { openAbout, openNotepad, openModal } from '../../store/actions/actions';
+import { cursorSetter } from '../../styles/cursorSetter';
 import Icon from './Icon';
 import MyComputer from '../../assets/desktop-icons/MyComputer.png';
 import RecycleBin from '../../assets/desktop-icons/RecycleBin.png';
@@ -59,11 +60,7 @@ function Icons({ onOpenAbout, onOpenNotepad, onOpenModal }) {
   }
 
   function doubleClicked(label) {
-    reset();
-    document.querySelector('html').classList.add('loading');
-    setTimeout(() => {
-      document.querySelector('html').classList.remove('loading');
-    }, 800);
+    reset(); cursorSetter();
     if (label === 'About') {
       onOpenAbout();
     } else if (label === 'Notepad') {

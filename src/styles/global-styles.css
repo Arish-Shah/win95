@@ -17,12 +17,12 @@
   font-size: 12px;
   outline: none;
   font-family: 'MS Sans Serif';
-  cursor: url('../assets/cursors/cursor-default.png'), auto;
   -moz-user-select: none; 
   -webkit-user-select: none; 
   -ms-user-select:none; 
   user-select:none;
   -o-user-select:none;
+  cursor: url(../assets/cursors/cursor-default.png), default;
 }
 
 html, 
@@ -31,18 +31,10 @@ body, .App {
   overflow: hidden;
 }
 
-html.loading *{
-  cursor: url('../assets/cursors/cursor-progress.png'), progress !important;
-}
-
 .App {
   height: 100vh;
   width: 100vw;
   position: fixed;
   overflow: hidden;
   background-color: #008080;
-}
-
-.Notepad {
-  cursor: url('../assets/cursors/cursor-text.png'), text !important; 
 }

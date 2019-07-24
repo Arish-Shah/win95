@@ -24,6 +24,16 @@ const Frame = styled(StyledFrame)`
   padding-bottom: 15px;
 `;
 
+const BlinkingTitleBar = styled(TitleBar)`
+  animation: backColor .15s;
+  animation-iteration-count: 5;
+
+  @keyframes backColor {
+    0% {background-color: rgb(0, 0, 127); color: rgb(255, 255, 255);}
+    50% {background-color: rgba(0, 0, 0, 0.4); color: rgb(200, 200, 200)}
+  }
+`;
+
 const StyledContainer = styled.div`
   padding: 10px;
   display: flex;
@@ -42,14 +52,14 @@ function Modal({ onModalExit }) {
   return (
     <ModalBackdrop>
       <Frame width="400">
-        <TitleBar blurred={false} className="title">
+        <BlinkingTitleBar blurred={false} className="title">
           <span>Warning</span>
           <ButtonGroup>
             <button>
               <img src={close} draggable="false" alt="Close" />
             </button>
           </ButtonGroup>
-        </TitleBar>
+        </BlinkingTitleBar>
 
         <StyledContainer>
           <img src={warningIcon} alt="Warning" />
