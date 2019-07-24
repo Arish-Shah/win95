@@ -8,10 +8,10 @@ import close from '../../../assets/titlebar-icons/close.png';
 function Frame({ children, id, x, y, img, title, blurred, showMenu, width, onMinimize, onExit, isMinimized }) {
   const menu = showMenu ?
     <StyledMenu>
-      <span>File</span>
-      <span>Edit</span>
-      <span>Search</span>
-      <span>Help</span>
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>S</u>earch</span>
+      <span><u>H</u>elp</span>
     </StyledMenu> : null;
 
   return (

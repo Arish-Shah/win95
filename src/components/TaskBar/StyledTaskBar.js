@@ -74,5 +74,13 @@ export const ProgramGroup = styled.div`
     text-align: right;
     font-size: 9px;
   }
+
+  em {
+    font-style: normal;
+  }
+
+  em::first-letter {
+    text-decoration: underline;
+  }
 `;
 

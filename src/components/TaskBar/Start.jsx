@@ -55,7 +55,7 @@ function Start({ onStartMenuBlur }) {
           {allPrograms.map(({ text, img, showArrow }, index) =>
             <ProgramGroup key={index} onClick={() => handleClick(text)}>
               <img src={img} alt={text} />
-              {text}
+              <em>{text}</em>
               {showArrow ? <span>▶</span> : null}
             </ProgramGroup>
           )}
