@@ -26,7 +26,7 @@ function TaskBarGroup({ showStart, about, notepad, showModal, onStartClick, onNo
       clicked={() => onNotepadClick()}>
       <div>
         <img src={notepadImage} alt="notepad" />
-        <span>NotePad</span>
+        <span>Untitled - NotePad</span>
       </div>
     </Button> : null;
 

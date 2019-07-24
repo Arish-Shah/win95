@@ -23,11 +23,12 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize }) {
         id="About"
         x="100"
         y="50"
+        width="400"
         img={aboutImage}
         title="About this Project"
         blurred={about.blurred}
-        showMenu={false}
-      /> : null;
+        showMenu={false}>
+      </WindowFrame> : null;
 
   return displayContent;
 }

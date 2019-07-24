@@ -5,14 +5,17 @@ import minimize from '../../../assets/titlebar-icons/minimize.png';
 import maximizeDisabled from '../../../assets/titlebar-icons/maximize-disabled.png';
 import close from '../../../assets/titlebar-icons/close.png';
 
-function Frame({ id, x, y, img, title, blurred, showMenu }) {
+function Frame({ children, id, x, y, img, title, blurred, showMenu, width }) {
   const menu = showMenu ?
     <StyledMenu>
-
+      <span>File</span>
+      <span>Edit</span>
+      <span>Search</span>
+      <span>Help</span>
     </StyledMenu> : null;
 
   return (
-    <StyledFrame x={x} y={y} id={id} blurred={blurred}>
+    <StyledFrame x={x} y={y} id={id} blurred={blurred} width={width}>
       <TitleBar blurred={blurred}>
         <img src={img} alt="Window" />
 
@@ -35,6 +38,8 @@ function Frame({ id, x, y, img, title, blurred, showMenu }) {
       </TitleBar>
 
       {menu}
+
+      {children}
 
     </StyledFrame >
   );

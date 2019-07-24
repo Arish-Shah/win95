@@ -2,15 +2,26 @@ import styled from 'styled-components';
 
 export const StyledFrame = styled.div`
   background-color: rgb(195, 199, 203);
-  height: 100px;
-  width: auto;
+  width: ${props => props.width + 'px'};
   position: absolute;
   box-shadow: rgb(0, 0, 0) -1.5px -1.5px 0.5px inset, 
     rgba(255, 255, 255, 0.8) 2px 2px 1px inset;
-    left: ${props => props.x + 'px'};
-    top: ${props => props.y + 'px'};   
-    z-index: ${props => props.blurred ? `4` : `7`};                                                     
-    padding: 3px 4px 3px 3px;
+  left: ${props => props.x + 'px'};
+  top: ${props => props.y + 'px'};   
+  z-index: ${props => props.blurred ? `4` : `7`};                                                     
+  padding: 3px 5px 4px 4px;
+  
+  div.Notepad {
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+    box-shadow: rgba(0, 0, 0, 0.8) 1.5px 1.5px 0 inset;
+    border-right: 2px solid rgb(240, 240, 240); 
+    border-bottom: 2px solid rgb(240, 240, 240); 
+    box-sizing: border-box;
+    padding: 3px;
+    font-size: 13px;
+  }
 `;
 
 export const TitleBar = styled.div`
@@ -59,5 +70,16 @@ export const ButtonGroup = styled.div`
 `;
 
 export const StyledMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 28%;
+  justify-content: space-between;
 
+  span {
+    padding: 5px;
+  }
+
+  span:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 `;
