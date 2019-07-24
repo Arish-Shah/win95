@@ -22,7 +22,18 @@
   -ms-user-select:none; 
   user-select:none;
   -o-user-select:none;
+}
+
+html *{
   cursor: url(../assets/cursors/cursor-default.png), default;
+}
+
+html.progress *{
+  cursor: url(../assets/cursors/cursor-progress.png), progress;
+}
+
+html.wait *{
+  cursor: url(../assets/cursors/cursor-wait.png), wait;
 }
 
 html, 

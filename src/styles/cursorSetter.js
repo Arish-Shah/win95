@@ -1,3 +1,13 @@
 export function cursorSetter() {
-  //document.querySelector('html').classList.remove('default');
+  const html = document.querySelector('html');
+
+  html.classList.add('wait');
+  setTimeout(() => {
+    html.classList.remove('wait');
+    html.classList.add('progress');
+  }, 300);
+
+  setTimeout(() => {
+    html.classList.remove('progress');
+  }, 600);
 }
