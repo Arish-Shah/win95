@@ -9,9 +9,9 @@ import Find from '../../assets/start-icons/Find.png';
 import Help from '../../assets/start-icons/Help.png';
 import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
-import { startMenuBlur } from '../../store/actions/actions';
+import { startMenuBlur, shutDown } from '../../store/actions/actions';
 
-function Start({ onStartMenuBlur }) {
+function Start({ onStartMenuBlur, onShutDown }) {
   const allPrograms = [
     { text: 'Programs', img: Programs, showArrow: true },
     { text: 'Documents', img: Documents, showArrow: true },
@@ -41,7 +41,12 @@ function Start({ onStartMenuBlur }) {
 
   function handleClick(text) {
     if (text === 'Shut Down...') {
-      onStartMenuBlur();
+      const html = document.querySelector('html');
+      html.classList.add('loading');
+      setTimeout(() => {
+        onShutDown();
+        html.classList.remove('loading');
+      }, 3000);
     }
   }
 
@@ -68,7 +73,8 @@ function Start({ onStartMenuBlur }) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onStartMenuBlur: () => dispatch(startMenuBlur())
+    onStartMenuBlur: () => dispatch(startMenuBlur()),
+    onShutDown: () => dispatch(shutDown())
   };
 }
 

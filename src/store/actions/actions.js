@@ -1,5 +1,11 @@
 import * as actionTypes from './actionTypes';
 
+export function shutDown() {
+  return {
+    type: actionTypes.SHUT_DOWN
+  }
+}
+
 export function startButtonClicked() {
   return {
     type: actionTypes.START_BUTTON_CLICKED

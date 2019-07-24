@@ -12,11 +12,24 @@ const initialState = {
     show: false,
     blurred: false,
     minimized: false
-  }
+  },
+  shutDown: false
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.SHUT_DOWN:
+      return {
+        ...state,
+        about: {
+          ...state.about
+        },
+        notepad: {
+          ...state.notepad
+        },
+        shutDown: true
+      }
+
     case actionTypes.START_BUTTON_CLICKED:
       return {
         ...state,
