@@ -18,13 +18,11 @@ function Frame({ children, id, img, title, blurred, showMenu, width, onMinimize,
   }, [offset]);
 
   function dragStart(event) {
-    event.preventDefault();
     window.onmousemove = (e) => dragging(e, { x: event.clientX, y: event.clientY });
     window.onmouseup = dragEnd;
   }
 
   function dragging(event, axis) {
-    event.preventDefault();
     let x = axis.x - event.clientX;
     let y = axis.y - event.clientY;
     setOffset({ x: event.clientX, y: event.clientY });
