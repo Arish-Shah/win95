@@ -17,7 +17,7 @@ function App({ aboutVisible, notepadVisible }) {
     return () => {
       window.removeEventListener('contextmenu', contextDisable);
     }
-  });
+  }, []);
 
   function contextDisable(event) { event.preventDefault(); }
 

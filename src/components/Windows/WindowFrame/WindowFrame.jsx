@@ -15,8 +15,8 @@ function Frame({ children, id, x, y, img, title, blurred, showMenu, width }) {
     </StyledMenu> : null;
 
   return (
-    <StyledFrame x={x} y={y} id={id} blurred={blurred} width={width}>
-      <TitleBar blurred={blurred}>
+    <StyledFrame x={x} y={y} id={id} width={width}>
+      <TitleBar blurred={blurred} onMouseDown={dragStart} className="title">
         <img src={img} alt="Window" />
 
         <span>{title}</span>

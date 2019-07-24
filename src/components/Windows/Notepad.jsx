@@ -11,10 +11,11 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize }) 
 
   useEffect(() => {
     window.addEventListener('click', notepadBlur);
-    inputRef.current.focus();
+    //inputRef.current.focus();
 
     return () => window.removeEventListener('click', notepadBlur);
-  });
+    // eslint-disable-next-line
+  }, []);
 
   function notepadBlur(event) {
     if (!document.querySelector('#Notepad').contains(event.target)) {
@@ -26,7 +27,7 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize }) 
     notepad.show && !notepad.minimized ?
       <WindowFrame
         id="Notepad"
-        x="200"
+        x="300"
         y="100"
         width="500"
         img={notepadImage}

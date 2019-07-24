@@ -31,10 +31,18 @@ body, .App {
   overflow: hidden;
 }
 
+html.loading *{
+  cursor: url('../assets/cursors/cursor-progress.png'), progress !important;
+}
+
 .App {
   height: 100vh;
   width: 100vw;
   position: fixed;
   overflow: hidden;
   background-color: #008080;
+}
+
+.Notepad {
+  cursor: url('../assets/cursors/cursor-text.png'), text !important; 
 }
