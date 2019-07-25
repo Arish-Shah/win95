@@ -10,6 +10,7 @@ import Help from '../../assets/start-icons/Help.png';
 import Run from '../../assets/start-icons/Run.png';
 import ShutDown from '../../assets/start-icons/ShutDown.png';
 import { startMenuBlur, shutDown, openModal } from '../../store/actions/actions';
+import { cursorSetter } from '../../styles/cursorSetter';
 
 function Start({ onStartMenuBlur, onShutDown, onOpenModal }) {
   const allPrograms = [
@@ -41,11 +42,9 @@ function Start({ onStartMenuBlur, onShutDown, onOpenModal }) {
 
   function handleClick(text) {
     if (text === 'Shut Down...') {
-      const html = document.querySelector('html');
-      html.classList.add('loading');
+      cursorSetter();
       setTimeout(() => {
         onShutDown();
-        html.classList.remove('loading');
       }, 3000);
     } else {
       onStartMenuBlur();
