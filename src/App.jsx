@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Icons from './components/Icons/Icons';
@@ -10,11 +10,16 @@ import Modal from './components/Modal';
 import startup from './assets/sounds/startup.mp3';
 
 function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
+  const [audio] = useState(new Audio(startup));
+
   useEffect(() => {
     window.addEventListener('contextmenu', contextDisable);
+    audio.play();
     return () => {
       window.removeEventListener('contextmenu', contextDisable);
     }
+
+    // eslint-disable-next-line
   }, []);
 
   function contextDisable(event) { event.preventDefault(); }
@@ -26,7 +31,6 @@ function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
 
   return (
     <div className="App">
-      <audio src={startup} autoPlay={true} />
       <Icons />
       {aboutDisplay}
       {notepadDisplay}
