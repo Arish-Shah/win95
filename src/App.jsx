@@ -7,11 +7,7 @@ import About from './components/Windows/About';
 import Notepad from './components/Windows/Notepad';
 import ShutDown from './components/ShutDown';
 import Modal from './components/Modal';
-
-// const theme = {
-//   main: 'rgb(195, 199, 203)',
-//   blue: 'rgb(0, 0, 127)',
-// }
+import startup from './assets/sounds/startup.mp3';
 
 function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
   useEffect(() => {
@@ -30,13 +26,14 @@ function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
 
   return (
     <div className="App">
+      <audio src={startup} autoPlay={true} />
       <Icons />
       {aboutDisplay}
       {notepadDisplay}
       {shutDownDisplay}
       {modalDisplay}
       <TaskBar />
-    </div>
+    </div >
   );
 }
 
