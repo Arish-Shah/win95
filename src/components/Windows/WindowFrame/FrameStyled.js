@@ -15,7 +15,7 @@ export const StyledFrame = styled.div.attrs(({ top, left }) => ({
   display: ${props => props.isMinimized ? `none` : `initial`};
   
   div.Notepad {
-    height: 250px;
+    height: 300px;
     background-color: rgb(255, 255, 255);
     overflow: scroll;
     box-shadow: rgba(0, 0, 0, 0.8) 1.5px 1.5px 0 inset;
@@ -25,10 +25,6 @@ export const StyledFrame = styled.div.attrs(({ top, left }) => ({
     padding: 3px;
     font-size: 13px;
   }
-`;
-
-export const StyledBorder = styled.div`
-  
 `;
 
 export const TitleBar = styled.div`
@@ -51,7 +47,7 @@ export const ButtonGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 200px;
+  width: 60px;
 
   button {
     text-align: center;

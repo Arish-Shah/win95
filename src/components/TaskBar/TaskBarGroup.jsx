@@ -38,7 +38,7 @@ function TaskBarGroup({ showStart, about, notepad, showModal, onStartClick, onNo
       id="about-button">
       <div>
         <img src={aboutImage} alt="about" />
-        <span>About this Project</span>
+        <span>About Windows</span>
       </div>
     </Button> : null;
 

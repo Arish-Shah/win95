@@ -29,7 +29,7 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, on
         id="Notepad"
         x="300"
         y="100"
-        width="500"
+        width="600"
         img={notepadImage}
         title="Untitled - Notepad"
         blurred={notepad.blurred}

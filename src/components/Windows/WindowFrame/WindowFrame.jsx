@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { StyledFrame, TitleBar, ButtonGroup, StyledMenu, StyledBorder } from './FrameStyled';
+import { StyledFrame, TitleBar, ButtonGroup, StyledMenu } from './FrameStyled';
 import minimize from '../../../assets/titlebar-icons/minimize.png';
 import maximizeDisabled from '../../../assets/titlebar-icons/maximize-disabled.png';
 import close from '../../../assets/titlebar-icons/close.png';
 
 function Frame({ children, id, img, title, blurred, showMenu, width, onMinimize, onExit, isMinimized }) {
-  const [coordinates, setCoordinates] = useState({ x: random(), y: random() });
+  const [coordinates, setCoordinates] = useState({ x: random() + 100, y: random() + 30 });
   const [offset, setOffset] = useState({ x: coordinates.x, y: coordinates.y });
 
   useEffect(() => {
@@ -56,32 +56,30 @@ function Frame({ children, id, img, title, blurred, showMenu, width, onMinimize,
       isMinimized={isMinimized}
       blurred={blurred}
     >
-      <StyledBorder>
-        <TitleBar blurred={blurred} className="title">
-          <img src={img} alt="Window" />
+      <TitleBar blurred={blurred}>
+        <img src={img} alt="Window" draggable="false" />
 
-          <span>{title}</span>
+        <span className="title">{title}</span>
 
-          <ButtonGroup>
-            <button className="clickable" onClick={() => onMinimize()}>
-              <img src={minimize} draggable="false" alt="Minimize" />
-            </button>
+        <ButtonGroup>
+          <button className="clickable" onClick={() => onMinimize()}>
+            <img src={minimize} draggable="false" alt="Minimize" />
+          </button>
 
-            <button>
-              <img src={maximizeDisabled} draggable="false" alt="Maximize" />
-            </button>
+          <button>
+            <img src={maximizeDisabled} draggable="false" alt="Maximize" />
+          </button>
 
-            <button className="clickable" onClick={() => onExit()}>
-              <img src={close} draggable="false" alt="Close" />
-            </button>
-          </ButtonGroup>
+          <button className="clickable" onClick={() => onExit()}>
+            <img src={close} draggable="false" alt="Close" />
+          </button>
+        </ButtonGroup>
 
-        </TitleBar>
+      </TitleBar>
 
-        {menu}
+      {menu}
 
-        {children}
-      </StyledBorder>
+      {children}
 
     </StyledFrame >
   );

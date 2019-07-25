@@ -36,6 +36,14 @@ html.wait *{
   cursor: url(../assets/cursors/cursor-wait.png), wait;
 }
 
+html.pointer * {
+  cursor: url(../assets/cursors/cursor-pointer.png), pointer;
+}
+
+a {
+  cursor: url(../assets/cursors/cursor-pointer.png), pointer;
+}
+
 html, 
 body, .App {
   margin: 0;

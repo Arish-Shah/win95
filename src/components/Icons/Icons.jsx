@@ -26,7 +26,7 @@ function Icons({ onOpenAbout, onOpenNotepad, onOpenModal }) {
     { label: 'Notepad', img: Notepad, clicked: false },
     { label: 'Internet Explorer', img: InternetExplorer, clicked: false },
     { label: 'GitHub Repo', img: GitHub, clicked: false },
-    { label: 'About', img: About, clicked: false },
+    { label: 'About Windows', img: About, clicked: false },
   ]);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function Icons({ onOpenAbout, onOpenNotepad, onOpenModal }) {
 
   function doubleClicked(label) {
     reset(); cursorSetter();
-    if (label === 'About') {
+    if (label === 'About Windows') {
       onOpenAbout();
     } else if (label === 'Notepad') {
       onOpenNotepad();
