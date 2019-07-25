@@ -44,6 +44,10 @@ a {
   cursor: url(../assets/cursors/cursor-pointer.png), pointer;
 }
 
+div.Notepad {
+  cursor: url(../assets/cursors/cursor-text.png), text;
+}
+
 html, 
 body, .App {
   margin: 0;

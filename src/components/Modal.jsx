@@ -39,8 +39,16 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
   span {
     padding-left: 15px;
+    text-align: left;
+    flex: 2;
+    line-height: 15px;
   }
 `;
 
@@ -64,8 +72,9 @@ function Modal({ onModalExit }) {
         <StyledContainer>
           <img src={warningIcon} alt="Warning" />
           <span>
-            Well that feature is not ready yet.
-            You might wanna check out other things like Notepad or Shutting your computer down.
+            Well that feature is not ready yet. <br />
+            Why don't you try other things like Notepad,
+            and we promise you that feature will be available soon.
           </span>
         </StyledContainer>
 

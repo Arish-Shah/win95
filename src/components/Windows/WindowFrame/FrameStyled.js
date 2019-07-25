@@ -22,7 +22,7 @@ export const StyledFrame = styled.div.attrs(({ top, left }) => ({
     border-right: 2px solid rgb(240, 240, 240); 
     border-bottom: 2px solid rgb(240, 240, 240); 
     box-sizing: border-box;
-    padding: 3px;
+    padding: 3px 0 0 4px;
     font-size: 13px;
   }
 `;

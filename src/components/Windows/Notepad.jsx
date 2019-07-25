@@ -10,7 +10,7 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, on
 
   useEffect(() => {
     window.addEventListener('click', notepadBlur);
-    //inputRef.current.focus();
+    inputRef.current.focus();
 
     return () => window.removeEventListener('click', notepadBlur);
     // eslint-disable-next-line
