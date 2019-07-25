@@ -37,7 +37,8 @@ export const Vertical = styled.div`
   
   span strong {
     font-size: 25px;
-    font-family: Arial Black;
+    font-family: Arial Black, Arial Bold, Gadget, sans-serif;
+    font-weight: 700;
   }
 `;
 

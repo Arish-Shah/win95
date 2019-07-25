@@ -18,7 +18,6 @@ function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
     return () => {
       window.removeEventListener('contextmenu', contextDisable);
     }
-
     // eslint-disable-next-line
   }, []);
 
