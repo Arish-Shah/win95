@@ -1,4 +1,4 @@
-export function cursorSetter() {
+export function cursorSetter(milliseconds) {
   const html = document.querySelector('html');
 
   html.classList.add('wait');
@@ -9,5 +9,5 @@ export function cursorSetter() {
 
   setTimeout(() => {
     html.classList.remove('progress');
-  }, 600);
+  }, milliseconds);
 }

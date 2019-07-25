@@ -9,7 +9,7 @@ const initialState = {
     minimized: false
   },
   notepad: {
-    show: false,
+    show: true,
     blurred: false,
     minimized: false
   },

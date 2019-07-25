@@ -60,7 +60,7 @@ function Icons({ onOpenAbout, onOpenNotepad, onOpenModal }) {
   }
 
   function doubleClicked(label) {
-    reset(); cursorSetter();
+    reset(); cursorSetter(600);
     if (label === 'About Windows') {
       onOpenAbout();
     } else if (label === 'Notepad') {

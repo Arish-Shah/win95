@@ -42,7 +42,7 @@ function Start({ onStartMenuBlur, onShutDown, onOpenModal }) {
 
   function handleClick(text) {
     if (text === 'Shut Down...') {
-      cursorSetter();
+      cursorSetter(3000);
       setTimeout(() => {
         onShutDown();
       }, 3000);

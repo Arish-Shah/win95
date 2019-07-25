@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import shutdown from '../assets/shutdown/shutdown.png';
 
 const StyledShutDown = styled.div`
   position: absolute;
@@ -14,11 +15,12 @@ const StyledShutDown = styled.div`
   align-items: center;
   justify-content: center;
 
-  h1 {
-    color: rgb(229,121,46);
-    font-size: 4rem;
-    width: 600px;
-    text-align: center;
+  img {
+    width: 650px;
+  }
+
+  @media (min-width: 600px) {
+    
   }
 `;
 
@@ -26,7 +28,7 @@ const StyledShutDown = styled.div`
 function ShutDown() {
   return (
     <StyledShutDown>
-      <h1>It's now safe to turn off your computer.</h1>
+      <img src={shutdown} alt="Shutdown" draggable="false" />
     </StyledShutDown>
   );
 }

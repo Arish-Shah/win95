@@ -14,14 +14,16 @@ function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
 
   useEffect(() => {
     window.addEventListener('contextmenu', contextDisable);
-    audio.play();
+    //audio.play();
     return () => {
       window.removeEventListener('contextmenu', contextDisable);
     }
     // eslint-disable-next-line
   }, []);
 
-  function contextDisable(event) { event.preventDefault(); }
+  function contextDisable(event) {
+    event.preventDefault();
+  }
 
   const aboutDisplay = aboutVisible ? <About /> : null;
   const notepadDisplay = notepadVisible ? <Notepad /> : null;

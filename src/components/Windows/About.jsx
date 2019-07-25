@@ -83,7 +83,7 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize, onAboutExit 
               GitHub: <a href="https://github.com/Arish-Shah" target="_blank" rel="noopener noreferrer">@Arish-Shah</a> <br />
               Twitter: <a href="https://twitter.com/Arish_Shah" target="_blank" rel="noopener noreferrer">@Arish_Shah</a>
               <hr />
-              Created using: <br />
+              Built using: <br />
               React, Redux and Styled Components.
             </div>
           </div>

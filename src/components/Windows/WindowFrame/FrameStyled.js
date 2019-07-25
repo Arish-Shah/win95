@@ -75,14 +75,16 @@ export const ButtonGroup = styled.div`
 export const StyledMenu = styled.div`
   display: flex;
   flex-direction: row;
-  width: 28%;
+  width: 25%;
   justify-content: space-between;
 
   span {
-    padding: 5px;
+    padding: 5px 8px;
+    margin: 2px 0;
   }
 
   span:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(0, 0, 127);
+    color: rgb(255, 255, 255);
   }
 `;
