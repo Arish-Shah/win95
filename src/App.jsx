@@ -14,7 +14,7 @@ function App({ aboutVisible, notepadVisible, shutDown, showModal }) {
 
   useEffect(() => {
     window.addEventListener('contextmenu', contextDisable);
-    //audio.play();
+    audio.play();
     return () => {
       window.removeEventListener('contextmenu', contextDisable);
     }

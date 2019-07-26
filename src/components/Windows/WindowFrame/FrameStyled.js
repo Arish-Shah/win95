@@ -1,21 +1,12 @@
 import styled from 'styled-components';
 
-export const BorderFrame = styled.div.attrs(({ top, left, height, width, display }) => ({
+export const StyledFrame = styled.div.attrs(({ top, left }) => ({
   style: {
-    top, left, height, width, display
-  }
-}))`
-  position: absolute;
-  border: 5px solid rgb(150, 150, 150);
-  z-index: 100;
-`;
-
-export const StyledFrame = styled.div.attrs(({ top, left, width, height }) => ({
-  style: {
-    top, left, width, height
+    top, left
   }
 }))`
   background-color: rgb(195, 199, 203);
+  width: ${props => props.width + 'px'};
   position: absolute;
   box-shadow: rgb(0, 0, 0) -1.5px -1.5px 0.5px inset, 
     rgba(255, 255, 255, 0.8) 2px 2px 1px inset;
@@ -44,7 +35,6 @@ export const TitleBar = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 1px 2px;
-
   span {
     padding-left: 4px;
     font-size: 11px;
@@ -57,7 +47,6 @@ export const ButtonGroup = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   width: 60px;
-
   button {
     text-align: center;
     margin-left: 2px;
@@ -86,12 +75,10 @@ export const StyledMenu = styled.div`
   flex-direction: row;
   width: 25%;
   justify-content: space-between;
-
   span {
-    padding: 3px 8px;
-    margin: 1.5px 0;
+    padding: 5px 8px;
+    margin: 2px 0;
   }
-
   span:hover {
     background-color: rgb(0, 0, 127);
     color: rgb(255, 255, 255);

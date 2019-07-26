@@ -4,7 +4,7 @@ const initialState = {
   showStart: false,
   showModal: false,
   about: {
-    show: true,
+    show: false,
     blurred: false,
     minimized: false
   },
