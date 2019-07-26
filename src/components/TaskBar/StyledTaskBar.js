@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledStart = styled.div`
-  z-index: 100;
+  z-index: 1000;
   left: 2px;
   bottom: 28px;
   height: auto;
