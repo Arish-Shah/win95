@@ -27,9 +27,10 @@ function Notepad({ notepad, onNotepadFocus, onNotepadBlur, onNotepadMinimize, on
     notepad.show ?
       <WindowFrame
         id="Notepad"
-        x="300"
-        y="100"
+        x="120"
+        y="90"
         width="600"
+        height="348"
         img={notepadImage}
         title="Untitled - Notepad"
         blurred={notepad.blurred}

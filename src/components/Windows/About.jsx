@@ -56,9 +56,10 @@ function About({ about, onAboutFocus, onAboutBlur, onAboutMinimize, onAboutExit 
     about.show ?
       <WindowFrame
         id="About"
-        x="100"
-        y="50"
+        x="140"
+        y="100"
         width="400"
+        height="285"
         img={aboutImage}
         title="About Windows"
         blurred={about.blurred}

@@ -1,42 +1,37 @@
 import React, { useState, useEffect } from 'react';
 
-import { StyledFrame, TitleBar, ButtonGroup, StyledMenu } from './FrameStyled';
+import { BorderFrame, StyledFrame, TitleBar, ButtonGroup, StyledMenu } from './FrameStyled';
 import minimize from '../../../assets/titlebar-icons/minimize.png';
 import maximizeDisabled from '../../../assets/titlebar-icons/maximize-disabled.png';
 import close from '../../../assets/titlebar-icons/close.png';
 
-function Frame({ children, id, img, title, blurred, showMenu, width, onMinimize, onExit, isMinimized }) {
-  const [coordinates, setCoordinates] = useState({ x: random() + 100, y: random() + 30 });
-  const [offset, setOffset] = useState({ x: coordinates.x, y: coordinates.y });
+function Frame({ children, id, x, y, img, title, blurred, showMenu, height, width, onMinimize, onExit, isMinimized }) {
+  const [coord, setCoord] = useState({ x: x, y: y });
+  const [border, setBorder] = useState({ x: x, y: y, display: 'none' });
 
   useEffect(() => {
-    const frameTitle = document.querySelector('#' + id + ' .title');
-    frameTitle.addEventListener('mousedown', dragStart);
+    const titleBar = document.querySelector('#' + id + ' .title');
+    titleBar.addEventListener('mousedown', dragStart);
 
-    return () => frameTitle.removeEventListener('mousedown', dragStart);
-    // eslint-disable-next-line
-  }, [offset]);
+    return () => titleBar.removeEventListener('mousedown', dragStart);
+  });
 
-  function dragStart(event) {
-    window.onmousemove = (e) => dragging(e, { x: event.clientX, y: event.clientY });
-    window.onmouseup = dragEnd;
+  function dragStart() {
+    window.onmousemove = dragging;
+    window.onmouseup = () => dragEnd();
+    console.log('Starting dragging');
   }
 
-  function dragging(event, axis) {
-    let x = axis.x - event.clientX;
-    let y = axis.y - event.clientY;
-    setOffset({ x: event.clientX, y: event.clientY });
-    setCoordinates({ x: coordinates.x - x, y: coordinates.y - y });
+  function dragging() {
+    console.log('dragging');
 
+    window.onmouseup = () => dragEnd();
   }
 
-  function dragEnd() {
+  function dragEnd(msg) {
     window.onmousemove = null;
     window.onmouseup = null;
-  }
-
-  function random() {
-    return Math.round(Math.random() * 100);
+    console.log(msg);
   }
 
   const menu = showMenu ?
@@ -48,40 +43,50 @@ function Frame({ children, id, img, title, blurred, showMenu, width, onMinimize,
     </StyledMenu> : null;
 
   return (
-    <StyledFrame
-      left={coordinates.x}
-      top={coordinates.y}
-      id={id}
-      width={width}
-      isMinimized={isMinimized}
-      blurred={blurred}
-    >
-      <TitleBar blurred={blurred}>
-        <img src={img} alt="Window" draggable="false" />
+    <React.Fragment>
+      <BorderFrame
+        left={Number(border.x)}
+        top={Number(border.y)}
+        height={height + 'px'}
+        width={width + 'px'}
+        display={border.display} />
 
-        <span className="title">{title}</span>
+      <StyledFrame
+        left={Number(coord.x)}
+        top={Number(coord.y)}
+        id={id}
+        width={width + 'px'}
+        height={height + 'px'}
+        isMinimized={isMinimized}
+        blurred={blurred}
+      >
+        <TitleBar blurred={blurred}>
+          <img src={img} alt="Window" draggable="false" />
 
-        <ButtonGroup>
-          <button className="clickable" onClick={() => onMinimize()}>
-            <img src={minimize} draggable="false" alt="Minimize" />
-          </button>
+          <span className="title">{title}</span>
 
-          <button>
-            <img src={maximizeDisabled} draggable="false" alt="Maximize" />
-          </button>
+          <ButtonGroup>
+            <button className="clickable" onClick={() => onMinimize()}>
+              <img src={minimize} draggable="false" alt="Minimize" />
+            </button>
 
-          <button className="clickable" onClick={() => onExit()}>
-            <img src={close} draggable="false" alt="Close" />
-          </button>
-        </ButtonGroup>
+            <button>
+              <img src={maximizeDisabled} draggable="false" alt="Maximize" />
+            </button>
 
-      </TitleBar>
+            <button className="clickable" onClick={() => onExit()}>
+              <img src={close} draggable="false" alt="Close" />
+            </button>
+          </ButtonGroup>
 
-      {menu}
+        </TitleBar>
 
-      {children}
+        {menu}
 
-    </StyledFrame >
+        {children}
+
+      </StyledFrame>
+    </React.Fragment >
   );
 }
 

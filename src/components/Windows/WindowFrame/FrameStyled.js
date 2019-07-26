@@ -1,12 +1,21 @@
 import styled from 'styled-components';
 
-export const StyledFrame = styled.div.attrs(({ top, left }) => ({
+export const BorderFrame = styled.div.attrs(({ top, left, height, width, display }) => ({
   style: {
-    top, left
+    top, left, height, width, display
+  }
+}))`
+  position: absolute;
+  border: 5px solid rgb(150, 150, 150);
+  z-index: 100;
+`;
+
+export const StyledFrame = styled.div.attrs(({ top, left, width, height }) => ({
+  style: {
+    top, left, width, height
   }
 }))`
   background-color: rgb(195, 199, 203);
-  width: ${props => props.width + 'px'};
   position: absolute;
   box-shadow: rgb(0, 0, 0) -1.5px -1.5px 0.5px inset, 
     rgba(255, 255, 255, 0.8) 2px 2px 1px inset;
@@ -79,8 +88,8 @@ export const StyledMenu = styled.div`
   justify-content: space-between;
 
   span {
-    padding: 5px 8px;
-    margin: 2px 0;
+    padding: 3px 8px;
+    margin: 1.5px 0;
   }
 
   span:hover {

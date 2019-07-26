@@ -4,12 +4,12 @@ const initialState = {
   showStart: false,
   showModal: false,
   about: {
-    show: false,
+    show: true,
     blurred: false,
     minimized: false
   },
   notepad: {
-    show: true,
+    show: false,
     blurred: false,
     minimized: false
   },
