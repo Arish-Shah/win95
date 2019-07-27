@@ -12,6 +12,12 @@
   font-display: fallback;
 }
 
+@font-face {
+  font-family: 'Fixedsys';
+  src: url('../assets/fonts/Fixedsys.woff2');
+  font-display: fallback;
+}
+
 * {
   box-sizing: border-box;
   font-size: 12px;
@@ -46,6 +52,7 @@ a {
 
 div.Notepad {
   cursor: url(../assets/cursors/cursor-text.png), text;
+  font-family: 'Fixedsys', monospace;
 }
 
 html, 
