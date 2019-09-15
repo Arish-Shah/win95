@@ -17,4 +17,4 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 #### Demo
 
-https://win95.netlify.com
+https://arish-shah.github.io/win95
