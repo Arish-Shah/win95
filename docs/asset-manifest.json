@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.37c4ffc6.chunk.css",
-    "main.js": "/static/js/main.c4a55c87.chunk.js",
-    "main.js.map": "/static/js/main.c4a55c87.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.8084df0f.chunk.js": "/static/js/2.8084df0f.chunk.js",
-    "static/js/2.8084df0f.chunk.js.map": "/static/js/2.8084df0f.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.9c211088f6d45f16c984f65aa3e2b672.js": "/precache-manifest.9c211088f6d45f16c984f65aa3e2b672.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.37c4ffc6.chunk.css.map": "/static/css/main.37c4ffc6.chunk.css.map",
-    "static/media/global-styles.css": "/static/media/MSSansSerifBold.5eea6287.woff2",
-    "static/media/shutdown.png": "/static/media/shutdown.6863793f.png",
-    "static/media/startup.mp3": "/static/media/startup.337a0b0e.mp3"
+    "main.css": "/win95/static/css/main.7db232a7.chunk.css",
+    "main.js": "/win95/static/js/main.c4a55c87.chunk.js",
+    "main.js.map": "/win95/static/js/main.c4a55c87.chunk.js.map",
+    "runtime~main.js": "/win95/static/js/runtime~main.07cbb5a3.js",
+    "runtime~main.js.map": "/win95/static/js/runtime~main.07cbb5a3.js.map",
+    "static/js/2.144231db.chunk.js": "/win95/static/js/2.144231db.chunk.js",
+    "static/js/2.144231db.chunk.js.map": "/win95/static/js/2.144231db.chunk.js.map",
+    "index.html": "/win95/index.html",
+    "precache-manifest.98593e3c0d762b18388eef1219d85221.js": "/win95/precache-manifest.98593e3c0d762b18388eef1219d85221.js",
+    "service-worker.js": "/win95/service-worker.js",
+    "static/css/main.7db232a7.chunk.css.map": "/win95/static/css/main.7db232a7.chunk.css.map",
+    "static/media/global-styles.css": "/win95/static/media/MSSansSerifBold.5eea6287.woff2",
+    "static/media/shutdown.png": "/win95/static/media/shutdown.6863793f.png",
+    "static/media/startup.mp3": "/win95/static/media/startup.337a0b0e.mp3"
   }
 }

@@ -15,6 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prebuild": "rm -rf docs",
     "postbuild": "mv build docs"
   },
   "eslintConfig": {
@@ -32,5 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://win95.netlify.com/"
+  "homepage": "https://arish-shah.github.io/win95"
 }
